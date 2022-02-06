@@ -9,8 +9,8 @@ const PWAModal = () => {
 
 
         var x = window.matchMedia("(max-width: 922px)")
-        var value = localStorage.getItem("modal")
-        if (x.matches && value == null) {
+       
+        if (x.matches ) {
            document.getElementById("myModal").style.display = "block"
       
         }
@@ -28,7 +28,7 @@ const PWAModal = () => {
               
               span.addEventListener("click",function() {
                 modal.style.display = "none";
-                localStorage.setItem('modal',"close");
+                
               });
               
               

@@ -3,11 +3,11 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import MoviesList from "../../components/MoviesList";
 import { useState,useEffect } from "react";
-import Pagination from "../../components/Pagination"
 import API from "../../requests/API"
+import Pagination from "../../components/Pagination"
 
 
-const Bookmarks = () => {
+const Series = () => {
 
     const [films,Setfilms] = useState([]);
     const [Page,SetPage] = useState(1);
@@ -18,8 +18,7 @@ const Bookmarks = () => {
 
         if (Page == 1) {
             SetPd(true)
-        }
-
+        } else SetPd(false)
 
        async function getMovies() {
         const option = {
@@ -29,8 +28,7 @@ const Bookmarks = () => {
         }
 
         
-        var result = await API(option,`api/search/?page=${Page}&search=1&search_fields=typeOf`);
-        
+        var result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf`);
 
         if (result.status == 200) {
 
@@ -56,13 +54,13 @@ const Bookmarks = () => {
     }
 
     
-    return ( <div className="bookmarks-page">
+    return ( <div className="series-page">
         <Header />
         <div className="home-main">
             <div className="main-content">
             <div className="popular">
                 
-                    <h1> لیست تماشا </h1>
+                    <h1>سریال ها </h1>
             
             <MoviesList movies={films}/>
             </div>
@@ -74,4 +72,4 @@ const Bookmarks = () => {
     </div> );
 }
  
-export default Bookmarks;
+export default Series;

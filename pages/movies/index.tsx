@@ -7,7 +7,7 @@ import Pagination from "../../components/Pagination"
 import API from "../../requests/API"
 
 
-const Bookmarks = () => {
+const Movies = () => {
 
     const [films,Setfilms] = useState([]);
     const [Page,SetPage] = useState(1);
@@ -18,7 +18,7 @@ const Bookmarks = () => {
 
         if (Page == 1) {
             SetPd(true)
-        }
+        } else SetPd(false)
 
 
        async function getMovies() {
@@ -56,13 +56,13 @@ const Bookmarks = () => {
     }
 
     
-    return ( <div className="bookmarks-page">
+    return ( <div className="movies-page">
         <Header />
         <div className="home-main">
             <div className="main-content">
             <div className="popular">
                 
-                    <h1> لیست تماشا </h1>
+                    <h1>فیلم ها </h1>
             
             <MoviesList movies={films}/>
             </div>
@@ -74,4 +74,4 @@ const Bookmarks = () => {
     </div> );
 }
  
-export default Bookmarks;
+export default Movies;

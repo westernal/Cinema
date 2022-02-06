@@ -1,24 +1,47 @@
 import Header from "../../components/Header";
 import Navbar from "../../components/Navbar";
-import EmblaCarousel from "../../components/EmblaCarousel";
 import Footer from "../../components/Footer";
 import MoviesList from "../../components/MoviesList";
+import { useState,useEffect } from "react";
+import API from "../../requests/API"
+
 
 const Animations = () => {
 
-    const SLIDE_COUNT = 5;
-    const slides = Array.from(Array(SLIDE_COUNT).keys());
+    const [films,Setfilms] = useState([]);
+
+    useEffect(() => {
+       async function getMovies() {
+        const option = {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            redirect: 'follow'
+        }
+
+        
+        var result = await API(option,"api/film/genre/4");
+
+        if (result.status == 200) {
+            
+            Setfilms(result.data.film_set);
+           
+       }
+    }
+
+    getMovies();
+
+    },[])
+
+    
     return ( <div className="animations-page">
-         <Header />
+        <Header />
         <div className="home-main">
             <div className="main-content">
-            <EmblaCarousel slides={slides} />
             <div className="popular">
-                <div className="popular-title">
-                    <p>مشاهده بیش تر</p>
-                    <h3>انیمیشن های محبوب</h3>
-                </div>
-              <MoviesList />
+                
+                    <h1>انیمیشن ها </h1>
+            
+            <MoviesList movies={films}/>
             </div>
             </div>
             <Navbar />

@@ -1,1 +1,188 @@
-if(!self.define){const e=e=>{"require"!==e&&(e+=".js");let s=Promise.resolve();return a[e]||(s=new Promise((async s=>{if("document"in self){const a=document.createElement("script");a.src=e,document.head.appendChild(a),a.onload=s}else importScripts(e),s()}))),s.then((()=>{if(!a[e])throw new Error(`Module ${e} didn’t register its module`);return a[e]}))},s=(s,a)=>{Promise.all(s.map(e)).then((e=>a(1===e.length?e[0]:e)))},a={require:Promise.resolve(s)};self.define=(s,n,i)=>{a[s]||(a[s]=Promise.resolve().then((()=>{let a={};const r={uri:location.origin+s.slice(1)};return Promise.all(n.map((s=>{switch(s){case"exports":return a;case"module":return r;default:return e(s)}}))).then((e=>{const s=i(...e);return a.default||(a.default=s),a}))})))}}define("./sw.js",["./workbox-4a677df8"],(function(e){"use strict";importScripts(),self.skipWaiting(),e.clientsClaim(),e.precacheAndRoute([{url:"/Fonts/IRANYekanExtraBlack.ttf",revision:"9d84d24120dde4ccef88ffab0437645d"},{url:"/Fonts/IRANYekanRegular.ttf",revision:"5504ec99783af49b905fcb3c4ed78e55"},{url:"/Images/99f8702093bd74454c4636a33f558c4a.png",revision:"b88bae8c7df1a2ac8d977d5185ff26d7"},{url:"/Images/Frame 85 (1).svg",revision:"88bbfe7ab38a05253bfa27383a0e0ce6"},{url:"/Images/Frame 85.svg",revision:"9e30301d0707050ed5438a8d759bde54"},{url:"/Images/Frame 86.svg",revision:"dc301156ca1e84b7a3bdcd64e67d14ea"},{url:"/Images/Green-Book-2018.jpg",revision:"15b2c4252b617f31a27ccc699160213e"},{url:"/Images/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_FMjpg_UX1000_.jpg",revision:"2f21dae394528f44da67925e6b0bdc83"},{url:"/Images/MV5BMjA1Nzk0OTM2OF5BMl5BanBnXkFtZTgwNjU2NjEwMDE@._V1_.jpg",revision:"3cba581dcba13979ab72169e8939c5f8"},{url:"/Images/Spider-Man-No-Way-Home-poster.jpg",revision:"cf5345821d50d0aaccdc8edc89cf0089"},{url:"/Images/bookmark.svg",revision:"83b4a6ed0e066fcec0d0a9a07e6fb012"},{url:"/Images/burger.svg",revision:"cbe571e8b35bde1089d64f5f79af52ac"},{url:"/Images/glasses.svg",revision:"05d6de19729864bea3133457960f07a9"},{url:"/Images/home.svg",revision:"5d0dd6d5e4292f1a63a6e746756ca779"},{url:"/Images/logout.svg",revision:"438f33a8c17d8db92e57e5c912fca489"},{url:"/Images/photo_2021-01-28_21-12-12-removebg-preview (1).jpg",revision:"9880a8ce43280a0d3717e2d65cf1c913"},{url:"/Images/profile.svg",revision:"98b9a8870a7ff33847d70e7efedbc71b"},{url:"/Images/search.svg",revision:"c0895c78def83afd19c3572f293e5c2e"},{url:"/Images/setting.svg",revision:"5ad4567e8d75e1b9dc1b4a94cb23ee42"},{url:"/Images/star.svg",revision:"deae5e4693fb4332059a4de74ff67630"},{url:"/Images/subscription.svg",revision:"20c10e3df61e91dedb0c9faf80ece6ec"},{url:"/Images/wallet.svg",revision:"3a146557a4d67b305eed623a8aa075e8"},{url:"/_next//static/media/Frame 85 (1).2bb0908b.svg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next//static/media/Frame 85.f5d15ef6.svg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next//static/media/Frame 86.b1951d91.svg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next//static/media/Green-Book-2018.92cc20dd.jpg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next//static/media/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_FMjpg_UX1000_.e99c6ec2.jpg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next//static/media/MV5BMjA1Nzk0OTM2OF5BMl5BanBnXkFtZTgwNjU2NjEwMDE@._V1_.a2cb54d7.jpg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next//static/media/Spider-Man-No-Way-Home-poster.6fb54366.jpg",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/server/middleware-manifest.json",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/227-b5bd1119c8c05c7e.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/547-34a6694125664053.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/framework-91d7f78b5b4003c8.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/main-1d4a615742b109f0.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/_app-66bb927ba72df572.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/_error-2280fa386d040b66.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/animations-f6524376d415876e.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/animations/%5Btitle%5D-cb5ba60fc9fb39f8.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/bookmarks-0bf96c913c2e33c8.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/index-e0eca6e07091f1cb.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/movies/%5Btitle%5D-3d9ddf2060203d16.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/profile/%5Bid%5D-09317b380b1737f3.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/series-9ca30854ec864c52.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/series/%5Btitle%5D-88a81d3dcd8e00a3.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/pages/stream/%5Btitle%5D-6670750d3c098562.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/polyfills-a40ef1678bae11e696dba45124eadd70.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/chunks/webpack-514908bffb652963.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/css/7544aaa26d317387.css",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/lR5ts-9QjCJOFSnpYCWRa/_buildManifest.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/lR5ts-9QjCJOFSnpYCWRa/_middlewareManifest.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/lR5ts-9QjCJOFSnpYCWRa/_ssgManifest.js",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/media/IRANYekanExtraBlack.f6a5df11.ttf",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/_next/static/media/IRANYekanRegular.02befe3f.ttf",revision:"lR5ts-9QjCJOFSnpYCWRa"},{url:"/android-icon-144x144.png",revision:"ad4dea955ee50b221818d1ba8964f4d5"},{url:"/android-icon-192x192.png",revision:"423b992719d9a16c6fc5d66896f35f11"},{url:"/android-icon-36x36.png",revision:"c953c325d8d571b196e4766feb088c44"},{url:"/android-icon-48x48.png",revision:"0ed830a8a6c038edd594360c833f2d7c"},{url:"/android-icon-72x72.png",revision:"d706f30eee2c1260a62d49efde004261"},{url:"/android-icon-96x96.png",revision:"c7072632548ebc1a1e495425170f10ef"},{url:"/apple-icon-114x114.png",revision:"2b02749fba7e8d30f9c1daec5e776029"},{url:"/apple-icon-120x120.png",revision:"16e6ddceb811c27ef5ee1fbfe41d47e6"},{url:"/apple-icon-144x144.png",revision:"ad4dea955ee50b221818d1ba8964f4d5"},{url:"/apple-icon-152x152.png",revision:"4a5bd72fb80b5a3092ec399d69431255"},{url:"/apple-icon-180x180.png",revision:"14cdc7902a1f76f13d58cbf6af562804"},{url:"/apple-icon-57x57.png",revision:"ac7054a743dea89d473436804fee1c43"},{url:"/apple-icon-60x60.png",revision:"810936a749a23f0d8d4b9e860a159ca6"},{url:"/apple-icon-72x72.png",revision:"d706f30eee2c1260a62d49efde004261"},{url:"/apple-icon-76x76.png",revision:"6eb0dd9ba758282636a26ea31140d688"},{url:"/apple-icon-precomposed.png",revision:"e42f8eb638a7f5f0dc2d2a4aefb49774"},{url:"/apple-icon.png",revision:"e42f8eb638a7f5f0dc2d2a4aefb49774"},{url:"/browserconfig.xml",revision:"653d077300a12f09a69caeea7a8947f8"},{url:"/css/style.css",revision:"28e15f8302e5e1c4463c1d087e1e50f1"},{url:"/favicon-16x16.png",revision:"94e7d50944aae9a48ece606eb63b34f3"},{url:"/favicon-32x32.png",revision:"70c993ef487d713225047ba993c4e91d"},{url:"/favicon-96x96.png",revision:"c7072632548ebc1a1e495425170f10ef"},{url:"/favicon.ico",revision:"24e11595b2007f443fc126f94ca84638"},{url:"/manifest.json",revision:"67117819ee03fa9761a8d8d933c60fbc"},{url:"/ms-icon-144x144.png",revision:"ad4dea955ee50b221818d1ba8964f4d5"},{url:"/ms-icon-150x150.png",revision:"8cfeceb8adcea447315daf4803261fa0"},{url:"/ms-icon-310x310.png",revision:"13405d0982a8e7a57343ebdcb23d3c60"},{url:"/ms-icon-70x70.png",revision:"4c824160c8fb51b7b3483871e566a8e3"}],{ignoreURLParametersMatching:[]}),e.cleanupOutdatedCaches(),e.registerRoute("/",new e.NetworkFirst({cacheName:"start-url",plugins:[{cacheWillUpdate:async({request:e,response:s,event:a,state:n})=>s&&"opaqueredirect"===s.type?new Response(s.body,{status:200,statusText:"OK",headers:s.headers}):s}]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(?:gstatic)\.com\/.*/i,new e.CacheFirst({cacheName:"google-fonts-webfonts",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:31536e3})]}),"GET"),e.registerRoute(/^https:\/\/fonts\.(?:googleapis)\.com\/.*/i,new e.StaleWhileRevalidate({cacheName:"google-fonts-stylesheets",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:604800})]}),"GET"),e.registerRoute(/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,new e.StaleWhileRevalidate({cacheName:"static-font-assets",plugins:[new e.ExpirationPlugin({maxEntries:4,maxAgeSeconds:604800})]}),"GET"),e.registerRoute(/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,new e.StaleWhileRevalidate({cacheName:"static-image-assets",plugins:[new e.ExpirationPlugin({maxEntries:64,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\/_next\/image\?url=.+$/i,new e.StaleWhileRevalidate({cacheName:"next-image",plugins:[new e.ExpirationPlugin({maxEntries:64,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:mp3|wav|ogg)$/i,new e.CacheFirst({cacheName:"static-audio-assets",plugins:[new e.RangeRequestsPlugin,new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:mp4)$/i,new e.CacheFirst({cacheName:"static-video-assets",plugins:[new e.RangeRequestsPlugin,new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:js)$/i,new e.StaleWhileRevalidate({cacheName:"static-js-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:css|less)$/i,new e.StaleWhileRevalidate({cacheName:"static-style-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\/_next\/data\/.+\/.+\.json$/i,new e.StaleWhileRevalidate({cacheName:"next-data",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute(/\.(?:json|xml|csv)$/i,new e.NetworkFirst({cacheName:"static-data-assets",plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute((({url:e})=>{if(!(self.origin===e.origin))return!1;const s=e.pathname;return!s.startsWith("/api/auth/")&&!!s.startsWith("/api/")}),new e.NetworkFirst({cacheName:"apis",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:16,maxAgeSeconds:86400})]}),"GET"),e.registerRoute((({url:e})=>{if(!(self.origin===e.origin))return!1;return!e.pathname.startsWith("/api/")}),new e.NetworkFirst({cacheName:"others",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:86400})]}),"GET"),e.registerRoute((({url:e})=>!(self.origin===e.origin)),new e.NetworkFirst({cacheName:"cross-origin",networkTimeoutSeconds:10,plugins:[new e.ExpirationPlugin({maxEntries:32,maxAgeSeconds:3600})]}),"GET")}));
+import { skipWaiting, clientsClaim } from 'workbox-core';
+import { ExpirationPlugin } from 'workbox-expiration';
+import { NetworkOnly, NetworkFirst, CacheFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import { registerRoute, setDefaultHandler, setCatchHandler } from 'workbox-routing';
+import { matchPrecache, precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
+
+skipWaiting();
+clientsClaim();
+
+// must include following lines when using inject manifest module from workbox
+// https://developers.google.com/web/tools/workbox/guides/precache-files/workbox-build#add_an_injection_point
+const WB_MANIFEST = self.__WB_MANIFEST;
+// Precache fallback route and image
+WB_MANIFEST.push({
+  url: '/fallback',
+  revision: '1234567890',
+});
+precacheAndRoute(WB_MANIFEST);
+
+cleanupOutdatedCaches();
+registerRoute(
+  '/',
+  new NetworkFirst({
+    cacheName: 'start-url',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 1,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
+  new CacheFirst({
+    cacheName: 'google-fonts',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 4,
+        maxAgeSeconds: 31536e3,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,
+  new StaleWhileRevalidate({
+    cacheName: 'static-font-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 4,
+        maxAgeSeconds: 604800,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+// disable image cache, so we could observe the placeholder image when offline
+registerRoute(
+  /\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,
+  new NetworkOnly({
+    cacheName: 'static-image-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 64,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /\.(?:js)$/i,
+  new StaleWhileRevalidate({
+    cacheName: 'static-js-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 32,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /\.(?:css|less)$/i,
+  new StaleWhileRevalidate({
+    cacheName: 'static-style-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 32,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /\.(?:json|xml|csv)$/i,
+  new NetworkFirst({
+    cacheName: 'static-data-assets',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 32,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /\/api\/.*$/i,
+  new NetworkFirst({
+    cacheName: 'apis',
+    networkTimeoutSeconds: 10,
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 16,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+registerRoute(
+  /.*/i,
+  new NetworkFirst({
+    cacheName: 'others',
+    networkTimeoutSeconds: 10,
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 32,
+        maxAgeSeconds: 86400,
+        purgeOnQuotaError: !0,
+      }),
+    ],
+  }),
+  'GET'
+);
+
+// following lines gives you control of the offline fallback strategies
+// https://developers.google.com/web/tools/workbox/guides/advanced-recipes#comprehensive_fallbacks
+
+// Use a stale-while-revalidate strategy for all other requests.
+setDefaultHandler(new StaleWhileRevalidate());
+
+// This "catch" handler is triggered when any of the other routes fail to
+// generate a response.
+setCatchHandler(({ event }) => {
+  // The FALLBACK_URL entries must be added to the cache ahead of time, either
+  // via runtime or precaching. If they are precached, then call
+  // `matchPrecache(FALLBACK_URL)` (from the `workbox-precaching` package)
+  // to get the response from the correct cache.
+  //
+  // Use event, request, and url to figure out how to respond.
+  // One approach would be to use request.destination, see
+  // https://medium.com/dev-channel/service-worker-caching-strategies-based-on-request-types-57411dd7652c
+  switch (event.request.destination) {
+    case 'document':
+      // If using precached URLs:
+      return matchPrecache('/fallback');
+      // return caches.match('/fallback')
+      break;
+    case 'image':
+      // If using precached URLs:
+      return matchPrecache('/static/images/fallback.png');
+      // return caches.match('/static/images/fallback.png')
+      break;
+    case 'font':
+    // If using precached URLs:
+    // return matchPrecache(FALLBACK_FONT_URL);
+    // return caches.match('/static/fonts/fallback.otf')
+    // break
+    default:
+      // If we don't have a fallback, just return an error response.
+      return Response.error();
+  }
+});

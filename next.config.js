@@ -7,5 +7,15 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
     runtimeCaching,
+    register: true,
+    skipWaiting: true,
+    swSrc: 'sw.js',
   },
 })
+
+module.exports = {
+  images: {
+      domains: ['m.media-amazon.com'],
+  },
+}
+

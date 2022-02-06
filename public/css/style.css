@@ -115,9 +115,20 @@
     transition: 0.3s;
   }
   
-  .overlay a:hover, .overlay a:focus ,.home-page #movie-tag,.series-page #series-tag,.animations-page #animations-tag{
+  .overlay a:hover, .overlay a:focus ,.home-page #home-tag,.genre  #genre-tag,.series-page #series-tag,.animations-page #animations-tag,.movies-page #films-tag{
     color: white;
     border-right: solid 3px #1f6cf0;
+  }
+
+  .movies-page .popular-title {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  .loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .overlay::-webkit-scrollbar {
@@ -156,12 +167,16 @@
     outline: none;
   }
 
+  .popular-items h4 {
+    color: white;
+  }
+
   .header {
     
     display: grid;
     width: 100%;
     padding: 0 10%;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns:  auto auto auto auto;
     grid-gap: 5%;
     justify-content: space-between;
     align-items: center;
@@ -181,20 +196,52 @@
     display: none;
   }
 
-  .header button {
+  .header button, .sign-card button {
     width: 130px;
-    height: 40px;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: yekan;
     font-family: yekan;
     border-radius: 46px;
     color: white;
-    background-color: inherit;
+    background-color: #29273c;
     border: 1px solid dimgray;
     transition: 1s;
   }
 
+  .sub-btn button {
+    background-color: #3984e3;
+    color: white;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: yekan;
+    width: 50%;
+    border-radius: 46px;
+    border: none;
+    transition: 1s;
+  }
+
+  .sub-btn button:hover {
+    background-color: green;
+  }
+
+  .sign-card button span {
+    font-family: yekan;
+    font-size: 10px;
+  }
+
+  .movie-info a {
+    color: white;
+    direction: rtl;
+  }
 
 
-  .series-page #series,.animations-page #animations {
+
+  .series-page #series,.animations-page #animations,.movies-page #movies {
     opacity: 1;
   }
 
@@ -215,11 +262,26 @@
     opacity: 1;
   }
 
-  .home-page #movies {
-    opacity: 1;
-  }
+ .popular-items h3 {
+   text-align: center;
+ }
 
-  .header button:hover {
+ .pagination {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-bottom: 50px;
+ }
+
+ .pag-btn {
+   color: white;
+ }
+
+ .disabled {
+   opacity: 0.4;
+ }
+
+  .header button:hover, .sign-card button:hover {
     background-color: white;
     color: #1e2130;
   }
@@ -240,6 +302,7 @@
     border: 1px solid dimgray;
     direction: rtl;
     padding-right: 40px;
+    background-color: #29273c;
   }
 
   .search input::placeholder {
@@ -247,7 +310,6 @@
   }
 
   .search img {
-    opacity: 0.2;
     position: absolute;
     top: 9px;
     right: 12px;
@@ -274,7 +336,13 @@
   }
 
   .navbar {
-    padding: 50px;
+    padding: 30px;
+  }
+
+  .profile-header h3 {
+    color: white;
+    opacity: 0.5;
+    margin-top: -20px;
   }
 
   .profile-bar {
@@ -406,6 +474,79 @@
     width: 30px;
     height: 30px;
   }
+
+  .subscription {
+    padding: 10px;
+    text-align: center;
+    background-color: #29273c;
+    border-radius: 20px;
+    box-shadow: 0px 15px 20px rgb(240 56 97 / 12%);
+
+  }
+
+  .subscription img {
+    width: 100%;
+    height: 65%;
+    border-radius: 20px;
+  }
+
+  .celeb-list {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 30px;
+  }
+
+  .sub-info {
+    direction: rtl;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  #celeb {
+    color: white;
+  }
+
+  .sub-info h3 {
+    color: #3984e3 !important;
+    display: flex;
+    justify-content: center;
+    padding: 0 !important;
+    align-items: center;
+  }
+
+  .sub-info h2 {
+    color: white;
+  }
+
+  .sub-list {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 30px;
+    padding:  30px;
+  }
+
+  .sub-header {
+    padding: 50px 25%;
+
+  }
+
+  .sub-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+  }
+
+  .sub-page .sub-info {
+    justify-content: space-evenly;
+  }
+
+  
   
 
   .nav-item:hover {
@@ -415,14 +556,24 @@
     border-right: 5px solid #3984e3;
   }
 
-  .home-page #navhome,.bookmark #navbook {
+  .home-page #navhome,.bookmark #navbook, #searchPage #navhome,.genre #navgen,.actors #navact {
     color: white;
     opacity: 1 !important;
     background-color: #29273c;
     border-right: 5px solid #3984e3 !important;
   }
 
-  .home-page #navhome svg path {
+  #navgen img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #navact img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .home-page #navhome svg path, .bookmark #navbook svg path {
     fill: #3984e3 !important;
   }
 
@@ -438,13 +589,15 @@
   .embla__viewport {
     overflow: hidden;
     width: 100%;
-   
+    background: #29273c;
+    border: 0.5px solid dimgray;
   }
   
   .embla__viewport.is-draggable {
     cursor: move;
     cursor: grab;
     border-radius: 20px;
+    
   }
   
   .embla__viewport.is-dragging {
@@ -452,6 +605,7 @@
   }
   
   .embla__container {
+    background: #29273c;
     display: flex;
     user-select: none;
     -webkit-touch-callout: none;
@@ -466,9 +620,12 @@
     min-width: 100%;
     padding-left: 10px;
     border-radius: 20px;
+    background: #29273c;
   }
   
   .embla__slide__inner {
+    background: #29273c;
+  
     position: relative;
     overflow: hidden;
     height: 480px;
@@ -489,6 +646,8 @@
   .embla__slide__img {
     position: absolute;
     display: block;
+    object-fit: none;
+    object-position: center;
     top: 50%;
     left: 50%;
     width: auto;
@@ -526,6 +685,10 @@
     width: 100%;
     height: 100%;
   }
+
+  .embla__button__svg  path {
+    fill: white;
+  }
   
   .embla__button--prev {
     left: 27px;
@@ -545,6 +708,12 @@
   .popular {
     padding: 100px;
   }
+
+  .popular h3,.popular h1 {
+    color: white;
+    direction: rtl;
+    padding:  30px;
+  }
   
   .popular-title {
     display: flex;
@@ -555,6 +724,11 @@
 
   .popular-title p {
     opacity: 0.4;
+    color: white;
+  }
+
+  .popular-title p:hover {
+    opacity: 1;
   }
 
   .main-content {
@@ -563,7 +737,7 @@
 
   .popular-items {
     display: grid;
-    grid-template-columns: 130px 130px 130px 130px 130px 130px ;
+    grid-template-columns: 130px 130px 130px 130px 130px ;
     justify-content: center;
     align-items: baseline;
     grid-gap: 20px;
@@ -575,10 +749,8 @@
   }
 
   .rating {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
     align-items: center;
-    width: 42px;
     margin-top: -20px;
   }
 
@@ -589,31 +761,58 @@
   .rating p {
     font-size: 14px;
     color: #c0a648;
-    margin: 4px 0 0 0;
+    margin: 4px 0 0 5px;
+  }
+
+  #success {
+    color: green;
   }
 
   #movie-background {
     position: absolute;
     top: 0;
-    width: 100%;
-    height: 735px;
+    left: 0;
+    height: 600px;
     z-index: -1;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.4;
+    filter: blur(5px);
+    border-radius: 0 20px 20px 0;
+  }
+
+  .movie-background {
+    position: relative;
   }
 
   a {
     text-decoration: none;
   }
 
+  .movie-info #two {
+    max-width: 400px;
+    text-align: justify;
+    flex-direction: column;
+  }
+
+  .movie-info {
+    direction: rtl;
+  }
+
+  #ltr {
+    direction: ltr;
+  }
+
   .movies-info {
     padding: 50px ;
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: center;
+    justify-content: right;
     align-items: self-start;
     grid-gap: 50px;
+  }
+
+  .actors-list {
+    margin-top: 100px;
+    text-align: center;
+    color: white;
   }
 
   .movies-pic img {
@@ -629,34 +828,67 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 10px;
-    justify-content: left;
+    justify-content: right;
     align-items: center;
     color: white;
     margin-top: -10px;
   }
 
-  .movies-nav p {
+  .movies-nav a {
+    color: white;
     font-size: 13px;
     opacity: 0.4;
   }
 
-  .movies-nav p:hover {
+ .movie-info #two,.movie-info #three,.movie-info #four {
+    display: none;
+    color: white;
+    direction: rtl;
+    font-size: 13px;
+  }
+
+  #one {
+    display: block ;
+    font-size: 13px;
+    color: white;
     opacity: 1;
+  }
+
+
+
+  .movies-nav a:hover {
+    opacity: 1 !important;
   }
 
   .movies-btns {
     display: grid;
     grid-template-columns: auto auto;
-    justify-content: left;
+    justify-content: right;
     direction: rtl;
     align-items: center;
     margin-top: 40px;
     grid-gap: 20px;
   }
 
+  #movieInfo {
+    margin: 20px 15%;
+    padding: 0;
+  }
+
+ 
+
+  video {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .movies-text {
+    text-align: right;
+  }
+
   .movies-btns button {
     border: none;
-    background-color: #29273c;
+    background-color: #1e2130;
     color: white;
     font-family: yekan;
     width: 140px;
@@ -692,13 +924,18 @@
     
   }
 
-  .movies-page .popular-title, .bookmark .popular-title, .profile-page .popular-title {
+  .movies-page .popular-title, .bookmark .popular-title,.searchPage .popular-title, .profile-page .popular-title {
     justify-content: right;
     padding-right: 50px;
   }
 
-  .bookmark .popular {
+  .bookmark .popular,.searchPage .popular {
     border-right: 1px solid dimgray;
+  }
+
+  #two ,#three, #four {
+    display: flex;
+    align-items: center;
   }
 
   .footer {
@@ -793,7 +1030,7 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
 
   .profile-header h1 {
     color: white;
-    margin-top: -10px;
+    
   }
 
   .profile-info,.edit-profile {
@@ -810,6 +1047,11 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
 
   #pi {
     opacity: 0.5;
+  }
+
+  #celebBox {
+    width: 180px;
+    height: 200px;
   }
 
   .edit-info,.add-cart,.subscribe {
@@ -866,15 +1108,126 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     width: 50px;
   }
 
+  #logout-btn {
+    
+    color: red;
+    border: 1px solid red;
+  }
 
+  #logout-btn:hover {
+    background-color: red;
+    color: white;
+  }
+
+  .sign-in {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #success {
+    color: green;
+  }
+
+  #fail {
+    color: red;
+  }
+
+  .sign-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 20px;
+    background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
+    width: 30vw;
+    height: 300px;
+    box-shadow: 0px 15px 20px rgb(240 56 97 / 12%);
+    
+  }
+
+  .sign-card input {
+    font-family: yekan;
+    width: 50%;
+    border-radius: 20px;
+    padding:  10px;
+    direction: rtl;
+    border: none;
+  }
+
+  #signup {
+    height: 500px;
+    margin-bottom: 100px;
+  }
+
+  .sign-card p {
+    color: white;
+    margin: 0;
+  }
+
+  .sign-card p a {
+    color: #1f6cf0;
+  }
+
+  .sign-card p a:hover {
+    color: #3984e3;
+  }
+
+  @media only screen and (max-width: 1300px) {
+   
+    .popular {
+      padding: 45px;
+    }
+
+  
+
+    .popular-items {
+      grid-template-columns: 130px 130px 130px 130px;
+    }
+
+    .navbar {
+      padding: 10px;
+    }
+
+    .embla {
+      width: 95%;
+    }
+
+    .search , .search input {
+      width: 270px;
+    }
+
+    
+
+    .header {
+      grid-gap: 20px;
+      padding: 0 3%;
+    }
+  }
   
   @media only screen and (max-width: 922px) {
     .navbar,.menu {
       display: none;
     }
 
+    .celeb-list {
+      grid-template-columns: auto auto auto;
+    }
+
+    .sub-list {
+      grid-template-columns: auto auto;
+    }
+
+    #logout-btn {
+      display: none;
+    }
+
     .movies-pic {
       grid-row: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     #movie-background {
@@ -886,7 +1239,7 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     }
 
     .search input {
-      width: 141px;
+      width: 350px;
       padding: 10px;
     }
 
@@ -899,7 +1252,7 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     }
     
 
-    .header button {
+    .header #hbtn {
       display: none;
     }
 
@@ -960,6 +1313,14 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
        width: 590px;
      }
 
+     .sign-card {
+       width: 50vw;
+     }
+
+     .movie-background {
+      display: none;
+    }
+
      
 
 
@@ -969,6 +1330,27 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     .popular-items {
       grid-template-columns: 130px 130px;
       grid-gap: 40px;
+    }
+
+    #movieInfo {
+      margin: 20px 5%;
+    }
+
+    .movies-pic img {
+      width: 250px;
+      height: 350px;
+    }
+
+    .search input {
+      width: 250px;
+    }
+
+    .celeb-list {
+      grid-template-columns: auto auto;
+    }
+
+    .sign-card {
+      width: 70vw;
     }
 
     .header {
@@ -984,6 +1366,10 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
       padding: 100px 0;
     }
 
+    .sub-list {
+      grid-template-columns: auto;
+    }
+
     
   }
 
@@ -993,6 +1379,16 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
       font-size: 16px;
       text-align: center;
     }
+
+    .search input {
+      width: 141px;
+    }
+
+    .celeb-list {
+      grid-template-columns: auto;
+    }
+
+    
 
     .modal-main button {
       width: 300px;
@@ -1011,5 +1407,10 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
 
     .pi1 {
       font-size: 12px;
+    }
+
+    .movies-pic img {
+      width: 150px;
+      height: 250px;
     }
   }
