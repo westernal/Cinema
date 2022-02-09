@@ -24,12 +24,13 @@ const Bookmarks = () => {
        async function getMovies() {
         const option = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',
+            'Authorization': `JWT ${localStorage.getItem('token')}` },
             redirect: 'follow'
         }
 
         
-        var result = await API(option,`api/search/?page=${Page}&search=1&search_fields=typeOf`);
+        var result = await API(option,`api/user/films`);
         
 
         if (result.status == 200) {
@@ -38,7 +39,7 @@ const Bookmarks = () => {
                 SetNd(true)
             } else SetNd(false)
             
-            Setfilms(result.data.results);
+            Setfilms(result.data.results[0].myFilms);
            
        }
     }
@@ -62,7 +63,7 @@ const Bookmarks = () => {
             <div className="main-content">
             <div className="popular">
                 
-                    <h1> لیست تماشا </h1>
+                    <h1>  فیلم های من </h1>
             
             <MoviesList movies={films}/>
             </div>

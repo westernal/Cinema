@@ -4,15 +4,17 @@ import API from "../requests/API";
 import Link from "next/dist/client/link";
 import { Puff } from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import ActorsList from "./actorsList"
+import ActorsList from "./ActorsList"
 
-const MovieInfo = () => {
+const MovieInfo = ({movie}) => {
 
-    const [movie,Setmovie] = useState([]);
-    const [movieIsOK,SetMovieIsOK] = useState(false);
-    const [loggedIn,SetLoggedIn] = useState(false);
+    
+    const [hasSub,SetHasSub] = useState(false);
+    const [movieIsOK,SetMovieIsOK] = useState(false)
     const [load,Setload] = useState(false);
     const [isSeries,SetIsSeries] = useState(false);
+    const [fail,SetFail] = useState(false);
+    const [success,Setsuccess] = useState(false)
     const Router = useRouter();
     
 
@@ -22,43 +24,34 @@ const MovieInfo = () => {
     useEffect(() => {
         Setload(true);
         
-
-        if ( localStorage.getItem("token") != "" && localStorage.getItem("token") != null ) {
+        var subscribed = localStorage.getItem("sub");
+        if ( subscribed !== "none" &&  subscribed !== "undefined" ) {
           
-            SetLoggedIn(true);
+            SetHasSub(true);
   
           } else {
   
-            SetLoggedIn(false);
+            SetHasSub(false);
   
           }
 
-        async function getMoviesList() {
-         const option = {
-             method: 'GET',
-             headers: { 'Content-Type': 'application/json' },
-             redirect: 'follow'
-         }
-         
-         var result = await API(option,`api/film/film/${Router.query.id}`);
-         console.log(result);
-         
-         if (result.status == 200) {
-            Setload(false);
-             Setmovie(result.data);
-             if (result.data.typeOf == 2) {
-                SetIsSeries(true);
-            }
-            SetMovieIsOK(true);
-        } 
-     }
+       
  
-     if (Router.query.id) {
-         getMoviesList();
+     if (movie.rating != undefined) {
+        SetMovieIsOK(true);
+        Setload(false)
+        if (movie.typeOf == 2) {
+            SetIsSeries(true);
+        }
+       
+
+        if (movie.user_purchased) {
+            SetHasSub(true);
+        }
      }
      
  
-     },[Router.query.id])
+     },[movie])
 
     function getInfo(e) {
         e.preventDefault();
@@ -78,6 +71,39 @@ const MovieInfo = () => {
         if (e.target.id == "one") {
             document.querySelector(`.movie-info #${id}`).style.display = "block";
         }
+    }
+
+    async function buyFilm(e) {
+        
+        const option = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `JWT ${localStorage.getItem('token')}` },
+            body: JSON.stringify({
+                film: movie.filmID
+            }),
+            redirect: 'follow'
+        }
+    
+        
+        console.log(option);
+            
+            var response = await fetch("https://rest.amdeveloper.xyz/api/film/film/buy/",option);
+           
+    
+            const data = await response.text();
+           
+           
+    
+            if (response.status == 201) {
+                SetFail(false)
+                SetHasSub(true)
+                Setsuccess(true)
+            } else {
+                SetFail(true)
+                Setsuccess(false)
+            }
     }
 
     return (  
@@ -107,18 +133,20 @@ const MovieInfo = () => {
                 <p id="ltr">{movieIsOK && movie.detailsEn}</p>
             <p>{movieIsOK && movie.detailsFa}</p>
             </div>
-            <p id="three">{movieIsOK && movie.filmDirector  && movie.filmDirector.map(director => { return(  <Link href={`/actors/${director.id}`} key={director.id}><a > <div className="subscription" id="celebBox">
+            <div id="three">{movieIsOK && movie.filmDirector  && movie.filmDirector.map(director => { return(  <Link href={`/actors/${director.id}`} key={director.id}><a > <div className="subscription" id="celebBox">
                <img id="celebProfile" src="/Images/profile.svg" alt="celebrity" />
 
                    <h4 id="celeb">{director.name}</h4>
                    
                
-           </div></a></Link>)})}</p>
+           </div></a></Link>)})}</div>
         </div>
+        {fail && <p id="fail">اعتبار حساب شما كافي نيست.</p>}
+        {success && <p id="success">فیلم مورد نظر با موفقيت خريداري شد.</p>}
         <div className="movies-btns">
-        <span><img src="/Images/bookmark.svg" alt="Bookmark logo" /></span>
-           {loggedIn && <Link href={`/stream/${Router.query.title}`}><a href=""><button>تماشا</button></a></Link>}
-           {!loggedIn && <Link href={`/profile/sign-in`}><a href=""><button>خرید اشتراک</button></a></Link>}
+           {hasSub  && <Link href={`/stream/${Router.query.title}`}><a href=""><button>تماشا</button></a></Link>}
+           {!hasSub && <Link href={`/subscription`}><a href=""><button>خرید اشتراک</button></a></Link>}
+           { !hasSub && <button id="buyMovie" onClick={buyFilm}>خرید فیلم</button>}
            
         </div>
     </div>}

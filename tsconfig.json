@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/profile/sign-in.jsx", "components/MovieInfo.jsx", "pages/search/[name].jsx", "pages/stream/[title].jsx", "pages/profile/[id]/pay.jsx", "components/Home.jsx", "pages/animations/index.jsx", "pages/series/index.jsx", "components/Pagination.jsx", "pages/subscription/[id].jsx"  ],
+, "pages/profile/sign-in.jsx", "components/MovieInfo.jsx", "pages/search/[name].jsx", "pages/stream/[title].jsx", "pages/profile/[id]/pay.jsx", "components/Home.jsx", "pages/animations/index.jsx", "pages/series/index.jsx", "components/Pagination.jsx", "pages/subscription/[id].jsx", "pages/profile/[id]/index.jsx", "components/Comments.jsx", "pages/movies/[title]/[id].jsx"  ],
   "exclude": [
     "node_modules"
   ]

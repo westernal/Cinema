@@ -64,7 +64,7 @@ const Actors = () => {
         <div className="popular">
                 
                    
-                    <h1> بازيگران</h1>
+                    <h1> هنرمندان</h1>
                 
              <div className="sub-list">
             {gotCelebs && celebs.map(celeb => ( 

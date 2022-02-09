@@ -5,6 +5,7 @@ import MoviesList from "../../components/MoviesList";
 import { useState,useEffect } from "react";
 import API from "../../requests/API"
 import Pagination from "../../components/Pagination"
+import Sort from "../../components/sort";
 
 
 const Series = () => {
@@ -28,7 +29,7 @@ const Series = () => {
         }
 
         
-        var result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf`);
+        var result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf&order_by=releaseDate_desc`);
 
         if (result.status == 200) {
 
@@ -53,6 +54,47 @@ const Series = () => {
         SetPage(Page - 1)
     }
 
+    async function sort(e) {
+        var result;
+ 
+     const option = {
+         method: 'GET',
+         headers: { 'Content-Type': 'application/json' },
+         redirect: 'follow'
+     }
+ 
+     if (e.target.value == "newest") {
+         result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf&order_by=releaseDate_desc`);
+     }
+ 
+     if (e.target.value == "oldest") {
+         result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf&order_by=releaseDate_asc`)
+     }
+ 
+     if (e.target.value == "high rating") {
+         result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf&order_by=rating_desc`)
+     }
+ 
+     if (e.target.value == "high price") {
+         result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf&order_by=price_desc`)
+     }
+ 
+     if (e.target.value == "low price") {
+         result = await API(option,`api/search/?page=${Page}&search=2&search_fields=typeOf&order_by=price_asc`)
+     }
+     if (result.status == 200) {
+ 
+         if (result.data.count/10 <= Page) {
+             SetNd(true)
+         } else SetNd(false)
+         
+         Setfilms(result.data.results);
+        
+    }
+ 
+ 
+     }
+
     
     return ( <div className="series-page">
         <Header />
@@ -60,7 +102,10 @@ const Series = () => {
             <div className="main-content">
             <div className="popular">
                 
+                    <div className="popular-title">
+                        <Sort onChange={sort}/>
                     <h1>سریال ها </h1>
+                    </div>
             
             <MoviesList movies={films}/>
             </div>

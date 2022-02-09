@@ -64,7 +64,7 @@ const Subscribe = () => {
         
 
         
-        var response = await fetch("https://amdeveloper.xyz/api/subscription/buy/",option);
+        var response = await fetch("https://rest.amdeveloper.xyz/api/subscription/buy/",option);
         
 
         const data = await response.text();
@@ -72,6 +72,7 @@ const Subscribe = () => {
        
 
         if (response.status == 201) {
+            localStorage.setItem('sub', sub.nameOf);
         Setsuccess(true);
         Setload(false);
 

@@ -1,7 +1,7 @@
 
 export default async function API (options,address)  {
 
-    const host = "https://amdeveloper.xyz/";
+    const host = "https://rest.amdeveloper.xyz/";
 
     const response = await fetch(host + address, options);
     

@@ -95,7 +95,10 @@ const Header = () => {
           </Link>
           <Link href="/movies"><a id="films-tag">فیلم ها
         </a>
+        
           </Link>
+          <Link href="/actors"><a id="actors-tag"> هنرمندان
+        </a></Link>
           {!pro && <Link href="/profile/sign-in"><a > ورود به حساب کاربری </a></Link> }
             {pro && <a  href="#" onClick={logOut}> خروج از حساب کاربری </a>}
         </div>

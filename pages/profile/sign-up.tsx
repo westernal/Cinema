@@ -8,6 +8,7 @@ import { Puff } from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import  GoogleLogin  from 'react-google-login';
 
+
 const SignUp = () => {
 
     const route = useRouter();
@@ -93,8 +94,7 @@ const SignUp = () => {
         
         
         var result = await API(option,"api/user/create/");
-        console.log(result);
-        console.log(res.profileObj.email.split("@",1)[0].toLowerCase());
+        
 
         if (result.status == 201) {
             Setload(false);
@@ -110,7 +110,9 @@ const SignUp = () => {
         SetEmailError(true);
     }
     
-    return ( <div className="profile-page">
+    return (
+        
+         <div className="profile-page">
         <Header />
 
         <div className="sign-in">

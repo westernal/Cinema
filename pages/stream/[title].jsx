@@ -20,7 +20,7 @@ const Stream = () => {
       <video  controls>
   {ok && <source src={`http://195.248.241.84:8080/video/${word}`} type="video/mp4"/>}
   
-Your browser does not support the video tag.
+        Your browser does not support the video tag.
 </video>
     </div> 
     );

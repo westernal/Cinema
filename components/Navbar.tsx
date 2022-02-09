@@ -24,10 +24,12 @@ const Navbar = () => {
             
             var result = await API(option,"api/user/info/");
             
-            
             if (result.status == 200) {
                 Setpro(true);
                 Setuser(result.data.results[0])
+                
+                    localStorage.setItem('sub', result.data.results[0].current_subscription.nameOf);
+               
             } 
         }
         
@@ -117,8 +119,14 @@ const Navbar = () => {
             </div>
             </a>
             </Link>
+            <Link href="/blog"><a > <div className="nav-item" id="navblog" onMouseEnter={hover} onMouseLeave={endhover}>
+                <p> بلاگ</p>
+               <img src="/Images/icons8-new-topic-64.png" alt="blog" />
+            </div>
+            </a>
+            </Link>
             {pro && <Link href="/bookmarks"><a > <div className="nav-item" id="navbook" onMouseEnter={hover} onMouseLeave={endhover}>
-                <p>  لیست تماشا</p>
+                <p>   فیلم های من</p>
                 <svg id="Layer_1"  version="1.1" viewBox="0 0 48 48" ><g><path d="M38,46.9l-14-9.7l-14,9.7V5c0-1.7,1.3-3,3-3h22c1.7,0,3,1.3,3,3V46.9z M24,34.8l12,8.3V5c0-0.6-0.4-1-1-1H13   c-0.6,0-1,0.4-1,1v38.1L24,34.8z"/></g></svg>
             </div>
             </a>
@@ -130,7 +138,7 @@ const Navbar = () => {
             </a>
             </Link>
             <Link href="/actors"><a > <div className="nav-item" id="navact" onMouseEnter={hover} onMouseLeave={endhover}>
-                <p> بازيگران</p>
+                <p> هنرمندان</p>
                <img src="/Images/icons8-theatre-mask-64.png" alt="actors" />
             </div>
             </a>

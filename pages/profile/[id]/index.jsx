@@ -7,6 +7,7 @@ import ProfileInfo from "../../../components/ProfileInfo";
 import { useState } from "react";
 import { useEffect } from "react";
 import API from "../../../requests/API";
+import Link from "next/dist/client/link";
 
 const Profile = () => {
     const Router = useRouter();
@@ -45,17 +46,18 @@ const Profile = () => {
        async function getMovies() {
         const option = {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json',
+            'Authorization': `JWT ${localStorage.getItem('token')}` },
             redirect: 'follow'
         }
 
         
-        var result = await API(option,"api/film/film/?page=1");
-        
+        var result = await API(option,"api/user/films");
+       
 
         if (result.status == 200) {
-            
-            Setfilms(result.data.results);
+           
+             Setfilms(result.data.results[0].myFilms);
            
        }
     }
@@ -72,8 +74,9 @@ const Profile = () => {
     
         <div className="popular">
                 <div className="popular-title">
-                   
-                    <h3>  فیلم های دیده شده </h3>
+                <Link href="/bookmarks"><a ><p>مشاهده بیش تر</p></a></Link>
+                    <h3>  فیلم های  من </h3>
+
                 </div>
 
                <MoviesList movies={films}/>

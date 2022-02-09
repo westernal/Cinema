@@ -21,6 +21,8 @@
     "react-google-login": "^5.2.2",
     "react-https-redirect": "^1.1.0",
     "react-loader-spinner": "^5.0.8",
+    "react-rating": "^2.0.5",
+    "react-rating-stars-component": "^2.2.0",
     "react-video-stream": "^1.0.1",
     "swr": "^1.1.2"
   },

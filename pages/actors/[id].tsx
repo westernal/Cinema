@@ -11,6 +11,7 @@ const Actor = () => {
     const router = useRouter()
     const [films,Setfilms] = useState([]);
     const [actor,Setactor] = useState({nameOf:""});
+    const [filmDirected,SetfilmDirected] = useState([])
     
 
     useEffect(() => {
@@ -23,12 +24,13 @@ const Actor = () => {
 
         
         var result = await API(option,`api/film/celebrity/${router.query.id}`);
-        console.log(result.data);
+        
 
         if (result.status == 200) {
             
             Setfilms(result.data.film_actor);
             Setactor(result.data);
+            SetfilmDirected(result.data.film_director)
        }
     }
 
@@ -52,6 +54,7 @@ const Actor = () => {
                     <h3>فیلم ها و سريال ها </h3>
                 
                <MoviesList movies={films}/>
+               <MoviesList movies={filmDirected} />
             </div>
             <Footer />
 

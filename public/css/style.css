@@ -46,6 +46,45 @@
       
     }
 
+    .review {
+      width: 70vw;
+      text-align: right;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #29273c;
+    }
+
+    .comments-list {
+      display: grid;
+      grid-template-columns: 70vw;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      grid-gap: 30px;
+    }
+
+    .review-profile {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      color: white;
+      direction: rtl;
+    }
+
+    .review-profile img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+
+    .review p {
+      color: white;
+      margin-right: 50px;
+    }
+
+    
+
   .modal-main {
       display: grid;
       grid-template-columns: auto ;
@@ -105,6 +144,55 @@
   .section7 h3 {
     opacity: 0.7;
   }
+
+  .comment-section h3 {
+    color: white;
+    text-align: center;
+  }
+
+  .comment-section {
+    margin: 30px;
+    border-top: 1px solid #29273c;
+  }
+
+  .post-comment {
+    direction: rtl;
+    text-align: center;
+  }
+
+  textarea:focus {
+    outline: none;
+  }
+
+  .cm-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    direction: ltr;
+  }
+
+  .cm-rating p {
+    margin-left: 5px;
+  }
+
+  .cm-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cm-inputs textarea {
+    margin-bottom: 30px;
+    width: 40vw;
+    border-radius: 20px;
+    padding: 20px;
+    height: 200px;
+    border: none;
+    font-family: yekan;
+    direction: rtl;
+  }
   
   .overlay a {
     padding: 8px;
@@ -114,8 +202,26 @@
     display: block;
     transition: 0.3s;
   }
+
+  #genre-item img {
+    width: 70%;
+    height: 50%;
+    margin-top: 10px;
+    border-radius: 0;
+  }
+
+  #buyMovie {
+    color: #1e2130;
+    background-color: white;
+  }
+
+  #buyMovie:hover {
+    color: white;
+    background-color: #1e2130;
+  }
   
-  .overlay a:hover, .overlay a:focus ,.home-page #home-tag,.genre  #genre-tag,.series-page #series-tag,.animations-page #animations-tag,.movies-page #films-tag{
+  .overlay a:hover, .overlay a:focus ,.home-page #home-tag,.genre  #genre-tag,.series-page #series-tag,.animations-page #animations-tag,.movies-page #films-tag,
+  .actors #actors-tag{
     color: white;
     border-right: solid 3px #1f6cf0;
   }
@@ -196,7 +302,7 @@
     display: none;
   }
 
-  .header button, .sign-card button {
+  .header button, .sign-card button,.cm-inputs button {
     width: 130px;
     padding: 5px 0;
     display: flex;
@@ -241,7 +347,7 @@
 
 
 
-  .series-page #series,.animations-page #animations,.movies-page #movies {
+  .series-page #series,.animations-page #animations,.movies-page #movies,#moviesPage #movies {
     opacity: 1;
   }
 
@@ -268,7 +374,7 @@
 
  .pagination {
    display: flex;
-   justify-content: space-between;
+   justify-content: space-evenly;
    align-items: center;
    padding-bottom: 50px;
  }
@@ -281,7 +387,7 @@
    opacity: 0.4;
  }
 
-  .header button:hover, .sign-card button:hover {
+  .header button:hover, .sign-card button:hover,.cm-inputs button:hover {
     background-color: white;
     color: #1e2130;
   }
@@ -332,7 +438,7 @@
   .home-main {
     display: grid;
     grid-template-columns: 4fr 1fr;
-    grid-gap: 30px;
+    
   }
 
   .navbar {
@@ -484,10 +590,30 @@
 
   }
 
+  .home-page .subscription,.sub .subscription {
+    min-height: 500px;
+  }
+
+  .comment-section .rating {
+    margin-top: 0;
+    margin-right: 10px;
+  }
+
   .subscription img {
     width: 100%;
     height: 65%;
     border-radius: 20px;
+  }
+
+  .blog .subscription img,.home-page .subscription img {
+    height: 250px;
+  }
+
+  .blog .sub-list, .home-page .sub-list {
+    grid-template-columns: 30vw 30vw;
+    grid-template-rows: 500px;
+    grid-gap: 20px;
+    row-gap: 50px;
   }
 
   .celeb-list {
@@ -523,7 +649,7 @@
 
   .sub-list {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 15vw 15vw 15vw;
     justify-content: center;
     align-items: center;
     grid-gap: 30px;
@@ -542,8 +668,12 @@
     padding: 50px;
   }
 
-  .sub-page .sub-info {
+  .sub-page .sub-info,.blog .sub-info {
     justify-content: space-evenly;
+  }
+
+  .blog .sub-info,.home-page .sub-info {
+    flex-direction: column;
   }
 
   
@@ -556,16 +686,26 @@
     border-right: 5px solid #3984e3;
   }
 
-  .home-page #navhome,.bookmark #navbook, #searchPage #navhome,.genre #navgen,.actors #navact {
+  .home-page #navhome,.bookmarks-page #navbook, #searchPage #navhome,.genre #navgen,.actors #navact,.blog #navblog {
     color: white;
     opacity: 1 !important;
     background-color: #29273c;
     border-right: 5px solid #3984e3 !important;
   }
 
-  #navgen img {
+  #navgen img{
     width: 30px;
     height: 30px;
+  }
+
+  #navblog img {
+    width: 35px;
+    height: 35px;
+  } 
+
+  #post-text {
+    color: white;
+    text-align: justify;
   }
 
   #navact img {
@@ -712,7 +852,20 @@
   .popular h3,.popular h1 {
     color: white;
     direction: rtl;
-    padding:  30px;
+    padding:  50px 0;
+    text-align: center;
+  }
+
+  #moviePrice {
+    text-align: left;
+    color: lightgreen;
+    margin: 0;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .popular-title {
@@ -720,6 +873,11 @@
     justify-content: space-between;
     color: white;
     align-items: center;
+    
+  }
+
+  .home-page .popular-title , .genre .popular,.actors .popular {
+    padding: 0 30px;
   }
 
   .popular-title p {
@@ -923,8 +1081,35 @@
     height: 30px;
     
   }
+  
+  .sort {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    direction: rtl;
+  }
 
-  .movies-page .popular-title, .bookmark .popular-title,.searchPage .popular-title, .profile-page .popular-title {
+  .sort select {
+    direction: rtl;
+    border-radius: 10px;
+    border: none;
+    font-family: yekan;
+    color: white;
+    background-color: #29273c;
+    padding: 10px 0;
+    margin-right: 10px;
+  }
+
+  #filter:hover {
+    opacity: 0.4 !important;
+  }
+
+  .sort select:focus {
+    border: none;
+    outline: none;
+  }
+
+  .movies-page .popular-title, .bookmark .popular-title {
     justify-content: right;
     padding-right: 50px;
   }
@@ -1028,6 +1213,8 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     
   }
 
+  
+
   .profile-header h1 {
     color: white;
     
@@ -1050,7 +1237,7 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
   }
 
   #celebBox {
-    width: 180px;
+    
     height: 200px;
   }
 
@@ -1086,6 +1273,8 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     margin-top: 50px;
     padding-bottom: 100px;
   }
+
+ 
 
  
 
@@ -1211,12 +1400,18 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
       display: none;
     }
 
+    .blog .sub-list, .home-page .sub-list {
+      grid-template-columns: 50vw;
+      grid-template-rows: auto;
+     
+    }
+
     .celeb-list {
       grid-template-columns: auto auto auto;
     }
 
     .sub-list {
-      grid-template-columns: auto auto;
+      grid-template-columns: 30vw 30vw;
     }
 
     #logout-btn {
@@ -1367,7 +1562,7 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
     }
 
     .sub-list {
-      grid-template-columns: auto;
+      grid-template-columns: 60vw;
     }
 
     
@@ -1379,6 +1574,8 @@ background: radial-gradient(circle, rgba(41,39,60,1) 0%, rgba(0,0,0,1) 100%);
       font-size: 16px;
       text-align: center;
     }
+
+  
 
     .search input {
       width: 141px;

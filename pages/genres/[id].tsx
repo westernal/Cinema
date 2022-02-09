@@ -42,10 +42,10 @@ const Genre = () => {
         <Header />
         <div className="home-main">
         <div className="popular">
-                <div className="popular-title">
+                
                    
-                    <h3>{ok && genre.nameOf}</h3>
-                </div>
+                    <h1>{ok && genre.nameOf}</h1>
+                
              {ok && <MoviesList movies={genre.film_set}/>}
             </div>
             <Navbar />

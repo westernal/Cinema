@@ -17,6 +17,7 @@ const MoviesList = (props) => {
             <img src="/Images/star.svg" alt="" />
             <p>{movie.rating}</p>
         </div>
+        <p id="moviePrice">{movie.price} تومان</p>
     </div>
     </a>  
     </Link>

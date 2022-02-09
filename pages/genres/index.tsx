@@ -62,13 +62,15 @@ const Genres = () => {
                    
                     <h1> دسته بندی ها</h1>
                 
-             <div className="popular-items">
+             <div className="sub-list">
             {ok && films.map(genre => (
-                <Link href={`/genres/${genre.genreID}`} key={genre.genreID}><a href="#">    <div className="popular-item">
-                <img src="/Images/apple-icon.png" alt="Popular Movie" id="pop-mov"   />
-                <h3>{genre.nameOf}</h3>
-               
-            </div></a></Link>
+                <Link href={`/genres/${genre.genreID}`} key={genre.genreID}><a href="#" id="genre-item"> <div className="subscription" id="celebBox">
+                <img id="celebProfile" src="/Images/category.png" alt="genre" />
+ 
+                    <h4 id="celeb">{genre.nameOf}</h4>
+                    
+                
+            </div>   </a></Link>
 
             )
 )}

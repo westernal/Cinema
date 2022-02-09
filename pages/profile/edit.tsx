@@ -1,9 +1,9 @@
-import Link from "next/dist/client/link";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import API from "../../requests/API"
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 
 const Edit = () => {
@@ -14,6 +14,12 @@ const Edit = () => {
     const [fail2,Setfail2] = useState(false);
     const [fail3,Setfail3] = useState(false);
     const [pw,Setpw] = useState(false);
+    const route = useRouter();
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+    
 
     useEffect(() => {
         async function userInfo() {
@@ -32,6 +38,7 @@ const Edit = () => {
             if (result.status == 200) {
                
                 Setuser(result.data.results[0])
+                
             } 
         }
         if ( localStorage.getItem("token") != "" && localStorage.getItem("token") != null ) {
@@ -106,7 +113,10 @@ const Edit = () => {
         // console.log(result);
 
         if (result.status == 200) {
+            
             Setsuccess(true);
+            await sleep(1000);
+            route.push(`/profile/${route.query.id}`)
         } else Setfail(true);
     }
     

@@ -10,6 +10,7 @@ import  GoogleLogin  from 'react-google-login';
 
 
 
+
 const SignIn = () => {
     
    
@@ -33,13 +34,14 @@ const SignIn = () => {
 
         
         var result = await API(option,"api/user/token/");
-
+        
         
         
 
         if (result.status == 200) {
             Setload(false);
             localStorage.setItem('token', result.data.access);
+           
             if (route.route == "/") {
                 route.reload();
             } else route.push("/");
@@ -67,12 +69,13 @@ const SignIn = () => {
 
         
         var result = await API(option,"api/user/token/");
-        
+       
         
 
         if (result.status == 200) {
             Setload(false);
             localStorage.setItem('token', result.data.access);
+            localStorage.setItem('sub', result.data.current_subscription);
             if (route.route == "/") {
                 route.reload();
             } else route.push("/");
@@ -88,7 +91,9 @@ const SignIn = () => {
 
     
     
-    return ( <div className="profile-page">
+    return ( 
+    
+    <div className="profile-page">
         <Header />
 
         
